@@ -1,8 +1,8 @@
-import axios from "axios";
-import fs from "fs";
-import path from "path";
+import axios from 'axios';
+import fs from 'fs';
+import path from 'path';
 export const getInfos = () => {
-  return axios.get("https://dog.ceo/api/breeds/list/all").then((e) => {
+  return axios.get('https://dog.ceo/api/breeds/list/all').then((e) => {
       const {data} = e;
       const message = data.message;
       const temp = [];

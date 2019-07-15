@@ -1,9 +1,9 @@
-import dotenv from "dotenv";
-import ejs from "ejs";
-import express from "express";
-import fs from "fs";
-import path from "path";
-import { getDogImages, getInfos } from "./handlers/dogs";
+import dotenv from 'dotenv';
+import ejs from 'ejs';
+import express from 'express';
+import fs from 'fs';
+import path from 'path';
+import { getDogImages, getInfos } from './handlers/dogs';
 
 interface IDog {
     breed: string;
@@ -23,17 +23,17 @@ interface IImagesDogs {
 dotenv.config();
 const port = process.env.SERVER_PORT;
 export const app = express();
-app.set( "views", path.join( __dirname, "../public" ) );
+app.set( 'views', path.join( __dirname, '../public' ) );
 // tslint:disable-next-line: no-var-requires
-app.engine("html", (ejs as any).__express);
-app.set( "view engine", "html" );
-app.use( express.static( path.join( __dirname, "../public" ) ) );
-app.get("/", (req, res) => {
+app.engine('html', (ejs as any).__express);
+app.set( 'view engine', 'html' );
+app.use( express.static( path.join( __dirname, '../public' ) ) );
+app.get('/', (req, res) => {
     // tslint:disable-next-line: no-console
     // console.log(req);
-    res.render("index.html");
+    res.render('index.html');
 });
-app.get( "/api/dog/breeds", ( req, res ) => {
+app.get( '/api/dog/breeds', ( req, res ) => {
     fs.readFile(path.join(__dirname, `./breeds.json`), (err: any, infos: Buffer) => {
         if (!err && infos) {
             try {
@@ -64,7 +64,7 @@ app.get( "/api/dog/breeds", ( req, res ) => {
     });
 });
 
-app.get("/api/dog/images/:breed/:subbreed?", (req, res) => {
+app.get('/api/dog/images/:breed/:subbreed?', (req, res) => {
     const params = req.params;
     let url: string;
     let fileName: string;

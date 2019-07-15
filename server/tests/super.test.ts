@@ -1,5 +1,6 @@
+// tslint:disable-next-line: no-implicit-dependencies
 import { expect } from 'chai';
-import express from 'express';
+// tslint:disable-next-line: no-implicit-dependencies
 import request from 'supertest';
 import {app} from '../src/index';
 describe('GET /api/dog/breeds', () => {

@@ -38,12 +38,8 @@ app.get( "/api/dog/breeds", ( req, res ) => {
         if (!err && infos) {
             try {
                 const infoFormTemp: IInfos = JSON.parse(infos.toString());
-                // tslint:disable-next-line: no-console
-                console.log(infoFormTemp);
                 if (new Date().valueOf() - infoFormTemp.time > 180000 ) {
                     getInfos().then((e: IDog[]) => {
-                        // tslint:disable-next-line: no-console
-                        console.log(e);
                         res.json(e);
                     }).catch(() => {
                         res.status(500);
@@ -53,8 +49,6 @@ app.get( "/api/dog/breeds", ( req, res ) => {
                 }
             } catch (err) {
                 getInfos().then((e: IDog[]) => {
-                    // tslint:disable-next-line: no-console
-                    console.log(e);
                     res.json(e);
                 }).catch(() => {
                     res.status(500);
@@ -62,8 +56,6 @@ app.get( "/api/dog/breeds", ( req, res ) => {
             }
         } else {
             getInfos().then((e: IDog[]) => {
-                // tslint:disable-next-line: no-console
-                console.log(e);
                 res.json(e);
             }).catch(() => {
                 res.status(500);
@@ -79,23 +71,15 @@ app.get("/api/dog/images/:breed/:subbreed?", (req, res) => {
     if (params.subbreed) {
         url = `https://dog.ceo/api/breed/${params.breed}/${params.subbreed}/images`;
         fileName = `${params.breed}_${params.subbreed}.json`;
-        // tslint:disable-next-line: no-console
-        console.log(url);
     } else {
         url = `https://dog.ceo/api/breed/${params.breed}/images`;
         fileName = `${params.breed}.json`;
     }
-    // tslint:disable-next-line: no-console
-    console.log(url);
 
     fs.readFile(path.join(__dirname, fileName), (err: any, infos: any) => {
-        // tslint:disable-next-line: no-console
-        console.log(err, infos);
         if (!err && infos) {
             try {
                 const infoFormTemp: IImagesDogs = JSON.parse(infos.toString());
-                // tslint:disable-next-line: no-console
-                console.log(infoFormTemp);
                 // const infoFormTemp: IImagesDogs = JSON.parse(infos);
                 if (new Date().valueOf() - infoFormTemp.time > 180000 ) {
                     getDogImages(url, fileName).then((e: string[]) => {

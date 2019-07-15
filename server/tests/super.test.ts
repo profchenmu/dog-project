@@ -2,10 +2,10 @@ import { expect } from "chai";
 import express from "express";
 import request from "supertest";
 import {app} from "../src/index";
-describe("GET /dog/breeds", () => {
+describe("GET /api/dog/breeds", () => {
   it("respond with json", (done) => {
     request(app)
-      .get("/dog/breeds")
+      .get("/api/dog/breeds")
       .set("Accept", "application/json")
       .expect("Content-Type", /json/)
       .expect(200)
@@ -22,10 +22,10 @@ describe("GET /dog/breeds", () => {
   });
 });
 
-describe("GET /dog/images/breed/chesapeake", () => {
+describe("GET /api/dog/images/breed/chesapeake", () => {
   it("respond with json", (done) => {
     request(app)
-      .get("/dog/images/retriever/chesapeake")
+      .get("/api/dog/images/retriever/chesapeake")
       .set("Accept", "application/json")
       .expect("Content-Type", /json/)
       .expect(200)
@@ -40,10 +40,10 @@ describe("GET /dog/images/breed/chesapeake", () => {
   });
 });
 
-describe("GET /dog/images/hound", () => {
+describe("GET /api/dog/images/hound", () => {
   it("respond with json", (done) => {
     request(app)
-      .get("/dog/images/hound")
+      .get("/api/dog/images/hound")
       .set("Accept", "application/json")
       .expect("Content-Type", /json/)
       .expect(200)

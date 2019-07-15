@@ -19,7 +19,7 @@
 
 ### Build Back-end server
 1. cd to project Root
-2. build and run docker image
+2. build and run docker image. Example: `docker build -t test8 .`; `docker run -d -p 80:8080 test8`; then visit `localhost` 
 
 ### About pm2
 1. pm2 can be run on baak-end by `npm run start-pm2`

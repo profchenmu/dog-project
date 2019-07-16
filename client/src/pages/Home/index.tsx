@@ -18,7 +18,9 @@ interface IHomeProps {
 }
 
 interface IHomeState {
-  breed: string|null
+  breed: string|null,
+  pageNow: number,
+  renderDogImages: string[]
 }
 
 class Home extends React.Component<IHomeProps, IHomeState> {
@@ -26,16 +28,25 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     super(props)
     this.state = {
       breed: null,
+      pageNow: 1,
+      renderDogImages: [],
     }
+    
     this.handleChange = this.handleChange.bind(this)
     this.handleSubbreedChange = this.handleSubbreedChange.bind(this)
   }
+  itemPerPage:number = 10
 
   public componentDidMount() {
     this.props.actions.getItems();
     // document.title = 'home';
   }
-
+  public componentWillReceiveProps(nextProps:any) {
+    const dImages = nextProps.dogImages.splite(0, 10);
+    this.setState({
+      renderDogImages: dImages,
+    })
+  }
   public handleChange(e: any) {
     this.setState({
       breed: e.target.value
@@ -47,7 +58,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
   }
   public render() {
     const { breeds, dogImages, breedsLoading, dogImagesLoading } = this.props;
-    const { breed } = this.state;
+    const { breed, renderDogImages } = this.state;
     const items:IBreed = breeds.find((e:any)=>{
       return e.breed === breed;
     }) || {}

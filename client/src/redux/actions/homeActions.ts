@@ -39,11 +39,9 @@ export const getItems = () => {
         type: Type.GET_ITEMS,
       })
     }).catch(() => {
-      // tslint:disable-next-line: no-console
-      console.log('breederror')
-      // dispatch({
-      //   type: `breederror`,
-      // })
+      dispatch({
+        type: `breederror`,
+      })
     })
   }
 }
@@ -64,11 +62,9 @@ export const getImages = (breed: string, subbreed?: string) => {
         type: Type.GET_IMAGES,
       })
     }).catch(() => {
-      // tslint:disable-next-line: no-console
-      console.log('imageerror')
-      // dispatch({
-      //   type: `imageerror`,
-      // })
+      dispatch({
+        type: `imageerror`,
+      })
     })
   }
 }

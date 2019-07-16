@@ -1,4 +1,7 @@
 .home {
+  div {
+    box-sizing: border-box;
+  }
   .header {
     padding: 1rem;
   }
@@ -34,51 +37,122 @@
       box-shadow: none;
     }
   }
+  .load-more {
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    background: cornflowerblue;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 1rem auto;
+    display: flex;
+    &:hover {
+      opacity: .5;
+    }
+  }
   .grid {
-    column-count: 2;
-    column-gap: 15px;
-    column-fill: auto;
+    margin: auto;
+    position: relative;
+    // column-count: 2;
+    // column-gap: 15px;
+    // column-fill: auto;
+  }
+  .error {
+    font-size: 1rem;
+    text-align: center;
+    color: gray;
   }
   .block {
+    position: absolute;
+    width: 50%;
+    padding: 5px;
     // background-color: #ee01ca;
-    background: url('./images/loading.gif');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    min-height: 100px;
-    display: block;
-    // padding: 20px;
-    word-wrap: break-word;
-    margin-bottom: 20px;
-    -webkit-column-break-inside: avoid;
-    -moz-column-break-inside: avoid;
-    column-break-inside: avoid;
+    // background: url('./images/loading.gif');
+    // background-repeat: no-repeat;
+    // background-size: contain;
+    // background-position: center;
+    // min-height: 100px;
+    // display: block;
+    // // padding: 20px;
+    // word-wrap: break-word;
+    // margin-bottom: 20px;
+    // -webkit-column-break-inside: avoid;
+    // -moz-column-break-inside: avoid;
+    // column-break-inside: avoid;
+  }
+
+  .custom-select {
+    display: inline-block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    appearance: none;
+  }
+  .row {
+    display: flex;
+  }
+  .col-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 1rem;
+    box-sizing: border-box;
+    position: relative;
   }
   // Small devices (landscape phones, 576px and up)
   @media (min-width: 576px) {
     .grid {
-      column-count: 3;
+      max-width: 90%;
     }
+    .block {
+      width: 33.3333333%;
+    }
+    // .grid {
+    //   column-count: 3;
+    // }
   }
 
   // Medium devices (tablets, 768px and up)
   @media (min-width: 768px) {
     .grid {
-      column-count: 4;
+      max-width: 90%;
     }
+    .block {
+      width: 25%;
+    }
+    // .grid {
+    //   column-count: 4;
+    // }
   }
 
   // Large devices (desktops, 992px and up)
   @media (min-width: 992px) {
     .grid {
-      column-count: 5;
+      max-width: 80%;
     }
+    .block {
+      width: 20%;
+    }
+    // .grid {
+    //   column-count: 5;
+    // }
   }
 
   // Extra large devices (large desktops, 1200px and up)
   @media (min-width: 1200px) {
     .grid {
-      column-count: 6;
+      max-width: 80%;
+    }
+    .block {
+      width: 16.66666666%;
     }
   }
 }
